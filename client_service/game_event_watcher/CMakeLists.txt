@@ -1,0 +1,56 @@
+SET(SRCS
+    game_event_watcher/aimlab/aimlab_log_watcher.cpp
+    game_event_watcher/csgo/csgo_log_watcher.cpp
+    game_event_watcher/csgo/csgo_gsi_listener.cpp
+    game_event_watcher/csgo/csgo_gsi_packet.cpp
+    game_event_watcher/csgo/csgo_gsi_state_manager.cpp
+    game_event_watcher/valorant/valorant_log_watcher.cpp
+    game_event_watcher/hearthstone/hearthstone_log_watcher.cpp
+    game_event_watcher/hearthstone/hearthstone_log_config.cpp
+    game_event_watcher/hearthstone/hearthstone_power_log_parser.cpp
+    game_event_watcher/wow/wow_log_watcher.cpp
+    game_event_watcher/league/league_log_watcher.cpp
+    game_event_watcher/ff14/ff14_log_watcher.cpp
+    game_event_watcher/logs/log_watcher.cpp
+)
+
+SET(HEADERS
+    game_event_watcher/aimlab/aimlab_log_watcher.h
+    game_event_watcher/csgo/csgo_log_watcher.h
+    game_event_watcher/csgo/csgo_gsi_listener.h
+    game_event_watcher/csgo/csgo_gsi_packet.h
+    game_event_watcher/csgo/csgo_gsi_state_manager.h
+    game_event_watcher/valorant/valorant_log_watcher.h
+    game_event_watcher/hearthstone/hearthstone_log_watcher.h
+    game_event_watcher/hearthstone/hearthstone_log_config.h
+    game_event_watcher/hearthstone/hearthstone_power_log_parser.h
+    game_event_watcher/wow/wow_log_watcher.h
+    game_event_watcher/league/league_log_watcher.h
+    game_event_watcher/ff14/ff14_log_watcher.h
+    game_event_watcher/logs/log_watcher.h
+)
+
+add_library(squadov_game_event_watcher
+    STATIC
+    ${SRCS}
+    ${HEADERS}
+)
+
+target_include_directories(squadov_game_event_watcher
+    PUBLIC
+    ${CMAKE_SOURCE_DIR}/client_service/shared
+    ${CMAKE_SOURCE_DIR}/client_service/game_event_watcher
+    ${CMAKE_SOURCE_DIR}/client_service/process_watcher
+    ${CMAKE_SOURCE_DIR}/deps/tinyxml2
+    ${CMAKE_SOURCE_DIR}/deps/civetweb/include
+    ${CMAKE_SOURCE_DIR}/deps/date/include
+    ${Boost_INCLUDE_DIRS}
+)
+
+target_link_libraries(squadov_game_event_watcher
+    squadov_shared
+    squadov_process_watcher
+    tinyxml2
+    version
+    ${Boost_LIBRARIES}
+)

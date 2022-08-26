@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html prefix="og: https://ogp.me/ns#">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-185942570-3"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-185942570-3');
+        </script>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <%- include('../dist/css') -%>
+
+        <% if (hasOEmbed) { %>
+        <link rel="alternate" type="application/json+oembed"
+            href="<%- oembedUrl -%>"
+            title="SquadOV oEmbed Profile" />
+        <% } %>
+
+        <% if (hasTwitterCard) { %>
+        <meta name="twitter:card" content="<%- twitterCard -%>" />
+        <meta name="twitter:site" content="@SquadOV" />
+        <meta name="twitter:title" content="<%- metaTitle -%>" />
+        <% if (metaHasVideo) { %>
+        <meta name="twitter:player" content="<%- metaPlayer -%>" />
+        <meta name="twitter:player:width" content="<%- metaVideoWidth -%>" />
+        <meta name="twitter:player:height" content="<%- metaVideoHeight -%>" />
+        <% } %>
+
+        <% if (metaHasThumbnail) { %>
+        <meta name="twitter:image" content="<%- metaThumbnail -%>" />
+        <% } %>
+        <% } %>
+
+        <% if (hasOpenGraph) { %>
+        <meta property="og:title" content="<%- metaTitle -%>" />
+        <meta property="og:type" content="<%- ogType -%>" />
+        <meta property="og:url" content="<%- selfUrl -%>" />
+        <% if (metaHasThumbnail) { %>
+        <meta property="og:image" content="<%- metaThumbnail -%>" />
+        <meta property="og:image:width" content="<%- metaThumbnailWidth -%>" />
+        <meta property="og:image:height" content="<%- metaThumbnailHeight -%>" />
+        <% } %>
+        <meta property="og:site_name" content="SquadOV - Better VODs, Better Match Details." />
+        <% if (metaHasVideo) { %>
+        <meta property="og:video" content="<%- metaVideo -%>" />
+        <meta property="og:video:secure_url" content="<%- metaVideo -%>" />
+        <meta property="og:video:type" content="<%- metaVideoType -%>" />
+        <meta property="og:video:width" content="<%- metaVideoWidth -%>" />
+        <meta property="og:video:height" content="<%- metaVideoHeight -%>" />
+        <% } %>
+        <% } %>
+
+        <link rel="icon" href="/assets/icon.ico" type="image/x-icon" />
+        <title>SquadOV</title>
+    </head>
+    <body>
+        <div id="app">
+            <v-app>
+                <v-main>
+                    <div id="webAppDiv">
+                        <app></app>
+                    </div>
+                </v-main>
+            </v-app>
+        </div>
+
+        <script type="text/javascript" src="https://cdn.statuspage.io/se-v2.js"></script>
+        <%- include('../dist/js') -%>
+        <script type="text/javascript" src="https://api.ipify.org?format=jsonp&callback=onIp"></script>
+    </body>
+</html>

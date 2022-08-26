@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Security-Policy" content="script-src https://*.statuspage.io https://www.google-analytics.com 'self' 'unsafe-eval' 'unsafe-inline' blob:;">
+
+        <link href="dist/app.css" rel="stylesheet" type="text/css">
+        <title>SquadOV</title>
+    </head>
+    <body>
+        <div id="app">
+            <v-app>
+                <v-main>
+                    <title-bar></title-bar>
+                    <div id="desktopAppDiv">
+                        <app></app>
+                    </div>
+                </v-main>
+            </v-app>
+        </div>
+        
+        <script type="text/javascript" src="https://cdn.statuspage.io/se-v2.js"></script>
+        <script src="rendererLog.js"></script>    
+        <script src="dist/app.js"></script>
+    </body>
+</html>

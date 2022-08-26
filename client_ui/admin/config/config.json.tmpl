@@ -1,0 +1,20 @@
+{
+    "oauth" : {
+        "tenantId": "${FUSIONAUTH_TENANT_ID}",
+        "clientId": "${ADMIN_FUSIONAUTH_CLIENT_ID}",
+        "clientSecret": "${ADMIN_FUSIONAUTH_CLIENT_SECRET}",
+        "faUrl": "https://auth.${DEPLOYMENT_DOMAIN}"
+    },
+    "url": "https://eagle.${DEPLOYMENT_DOMAIN}",
+    "secure": true,
+    "database": {
+        "username": "${POSTGRES_USER}",
+        "password": "${POSTGRES_PASSWORD}",
+        "host": "${DATABASE_HOST}",
+        "db": "squadov",
+        "port": 5432,
+        "ssl": {
+            "ca": "us-east-2-bundle.pem"
+        }
+    }
+}

@@ -1,0 +1,120 @@
+SET(SRCS
+    process_watcher/watcher.cpp
+    process_watcher/process/process.cpp
+    process_watcher/games/game_process_detector.cpp
+    process_watcher/games/csgo_process_detector.cpp
+    process_watcher/games/valorant_process_detector.cpp
+    process_watcher/games/hearthstone_process_detector.cpp
+    process_watcher/games/aimlab_process_detector.cpp
+    process_watcher/games/wow_process_detector.cpp
+    process_watcher/games/league_process_detector.cpp
+    process_watcher/games/ff14_process_detector.cpp
+    process_watcher/games/act_process_detector.cpp
+    process_watcher/memory/module_memory_mapper.cpp
+    process_watcher/memory/pe_mapper.cpp
+    process_watcher/memory/mono_memory_mapper.cpp
+    process_watcher/memory/mono/mono_image_mapper.cpp
+    process_watcher/memory/mono/mono_class_mapper.cpp
+    process_watcher/memory/mono/mono_classfield_mapper.cpp
+    process_watcher/memory/mono/mono_type_mapper.cpp
+    process_watcher/memory/mono/mono_vtable_mapper.cpp
+    process_watcher/memory/mono/mono_object_mapper.cpp
+    process_watcher/memory/mono/types/string_mapper.cpp
+    process_watcher/memory/games/hearthstone/hearthstone_memory_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/deck_picker_tray_display_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/draft_manager_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/collection_deck_box_visual_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/uber_text_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/collection_manager_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/collection_deck_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/collection_deck_slot_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/hearthstone_services_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/dynamic_service_locator_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/service_locator_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/game_mgr_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/player_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/medal_info_translator_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/translated_medal_info_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/game_state_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/net_cache_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/find_game_result_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/network_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/game_session_info_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/friendly_challenge_mgr_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/friendly_challenge_data_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/bnet_player_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/bnet_presence_mgr_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/bnet_account_id_mapper.cpp
+    process_watcher/memory/games/hearthstone/types/bnet_account_mapper.cpp
+)
+
+SET(HEADERS
+    process_watcher/watcher.h
+    process_watcher/handler.h
+    process_watcher/process/process.h
+    process_watcher/games/game_process_detector.h
+    process_watcher/games/csgo_process_detector.h
+    process_watcher/games/valorant_process_detector.h
+    process_watcher/games/hearthstone_process_detector.h
+    process_watcher/games/aimlab_process_detector.h
+    process_watcher/games/wow_process_detector.h
+    process_watcher/games/league_process_detector.h
+    process_watcher/games/ff14_process_detector.h
+    process_watcher/games/act_process_detector.h
+    process_watcher/memory/module_memory_mapper.h
+    process_watcher/memory/pe_mapper.h
+    process_watcher/memory/mono_memory_mapper.h
+    process_watcher/memory/mono/mono_forward.h
+    process_watcher/memory/mono/mono_image_mapper.h
+    process_watcher/memory/mono/mono_class_mapper.h
+    process_watcher/memory/mono/mono_classfield_mapper.h
+    process_watcher/memory/mono/mono_type_mapper.h
+    process_watcher/memory/mono/mono_vtable_mapper.h
+    process_watcher/memory/mono/mono_object_mapper.h
+    process_watcher/memory/mono/types/array_mapper.h
+    process_watcher/memory/mono/types/string_mapper.h
+    process_watcher/memory/mono/types/map_mapper.h
+    process_watcher/memory/mono/types/nullable_mapper.h
+    process_watcher/memory/mono/types/link_mapper.h
+    process_watcher/memory/mono/types/list_mapper.h
+    process_watcher/memory/games/hearthstone/hearthstone_memory_mapper.h
+    process_watcher/memory/games/hearthstone/types/deck_picker_tray_display_mapper.h
+    process_watcher/memory/games/hearthstone/types/draft_manager_mapper.h
+    process_watcher/memory/games/hearthstone/types/collection_deck_box_visual_mapper.h
+    process_watcher/memory/games/hearthstone/types/uber_text_mapper.h
+    process_watcher/memory/games/hearthstone/types/collection_manager_mapper.h
+    process_watcher/memory/games/hearthstone/types/collection_deck_mapper.h
+    process_watcher/memory/games/hearthstone/types/collection_deck_slot_mapper.h
+    process_watcher/memory/games/hearthstone/types/hearthstone_services_mapper.h
+    process_watcher/memory/games/hearthstone/types/dynamic_service_locator_mapper.h
+    process_watcher/memory/games/hearthstone/types/service_locator_mapper.h
+    process_watcher/memory/games/hearthstone/types/game_mgr_mapper.h
+    process_watcher/memory/games/hearthstone/types/player_mapper.h
+    process_watcher/memory/games/hearthstone/types/medal_info_translator_mapper.h
+    process_watcher/memory/games/hearthstone/types/translated_medal_info_mapper.h
+    process_watcher/memory/games/hearthstone/types/game_state_mapper.h
+    process_watcher/memory/games/hearthstone/types/net_cache_mapper.h
+    process_watcher/memory/games/hearthstone/types/find_game_result_mapper.h
+    process_watcher/memory/games/hearthstone/types/network_mapper.h
+    process_watcher/memory/games/hearthstone/types/game_session_info_mapper.h
+    process_watcher/memory/games/hearthstone/types/friendly_challenge_mgr_mapper.h
+    process_watcher/memory/games/hearthstone/types/friendly_challenge_data_mapper.h
+    process_watcher/memory/games/hearthstone/types/bnet_player_mapper.h
+    process_watcher/memory/games/hearthstone/types/bnet_presence_mgr_mapper.h
+    process_watcher/memory/games/hearthstone/types/bnet_account_id_mapper.h
+    process_watcher/memory/games/hearthstone/types/bnet_account_mapper.h
+)
+
+add_library(squadov_process_watcher
+    STATIC
+    ${SRCS}
+    ${HEADERS}
+)
+
+target_include_directories(squadov_process_watcher
+    PUBLIC
+    ${CMAKE_SOURCE_DIR}/client_service/shared
+    ${CMAKE_SOURCE_DIR}/client_service/process_watcher
+    ${CMAKE_SOURCE_DIR}/deps/json/single_include
+    ${CMAKE_SOURCE_DIR}/deps/date/include
+)

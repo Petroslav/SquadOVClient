@@ -1,0 +1,121 @@
+SET(SRCS
+    shared/games.cpp
+    shared/valorant/valorant.cpp
+    shared/time.cpp
+    shared/timer.cpp
+    shared/env.cpp
+    shared/strings/strings.cpp
+    shared/filesystem/common_paths.cpp
+    shared/filesystem/utility.cpp
+    shared/filesystem/local_record.cpp
+    shared/filesystem/steam_library_folders.cpp
+    shared/log/log.cpp
+    shared/sqlite/sqlite.cpp
+    shared/aimlab/aimlab.cpp
+    shared/uuid.cpp
+    shared/base64/encode.cpp
+    shared/base64/decode.cpp
+    shared/squadov/vod.cpp
+    shared/hearthstone/hearthstone_ratings.cpp
+    shared/errors/error.cpp
+    shared/version.cpp
+    shared/http/http_client.cpp
+    shared/http/civetweb_utility.cpp
+    shared/http/dns_manager.cpp
+    shared/ipc/shared_memory.cpp
+    shared/process.cpp
+    shared/time/ntp_client.cpp
+    shared/audio/timing.cpp
+    shared/system/win32/hwnd_utils.cpp
+    shared/system/win32/interfaces/win32_system_process_interface.cpp
+    shared/system/win32/gdi.cpp
+    shared/url.cpp
+    shared/system/keys.cpp
+    shared/system/win32/process.cpp
+    shared/system/win32/registry.cpp
+    shared/system/install.cpp
+    shared/image/ico/ico.cpp
+    shared/memory/byte_writer.cpp
+    shared/valve/vdf_file.cpp
+    shared/wow/toc.cpp
+    shared/wow/wtf.cpp
+    shared/system/win32/utils.cpp
+)
+
+SET(HEADERS
+    shared/games.h
+    shared/valorant/valorant.h
+    shared/riot/riot.h
+    shared/constants.h
+    shared/env.h
+    shared/time.h
+    shared/timer.cpp
+    shared/strings/strings.h
+    shared/filesystem/common_paths.h
+    shared/filesystem/utility.h
+    shared/filesystem/local_record.h
+    shared/filesystem/steam_library_folders.h
+    shared/log/log.h
+    shared/sqlite/sqlite.h
+    shared/aimlab/aimlab.h
+    shared/uuid.h
+    shared/base64/encode.h
+    shared/base64/decode.h
+    shared/squadov/session.h
+    shared/squadov/user.h
+    shared/hearthstone/hearthstone_ratings.h
+    shared/errors/error.h
+    shared/math.h
+    shared/version.h
+    shared/http/http_client.h
+    shared/http/civetweb_utility.h
+    shared/http/dns_manager.h
+    shared/ipc/shared_memory.h
+    shared/process.h
+    shared/time/ntp_client.h
+    shared/audio/timing.h
+    shared/system/win32/hwnd_utils.h
+    shared/system/win32/interfaces/win32_system_process_interface.h
+    shared/system/win32/registry.h
+    shared/system/win32/gdi.h
+    shared/system/interfaces/system_process_interface.h
+    shared/system/install.h
+    shared/url.h
+    shared/wow/instances.h
+    shared/wow/toc.h
+    shared/wow/wtf.h
+    shared/system/keys.h
+    shared/system/win32/process.h
+    shared/image/ico/ico.h
+    shared/memory/byte_writer.h
+    shared/valve/vdf_file.h
+    shared/system/utils.h
+)
+
+add_library(squadov_shared
+    STATIC
+    ${SRCS}
+    ${HEADERS}
+)
+
+target_include_directories(squadov_shared
+    PUBLIC
+    ${CMAKE_SOURCE_DIR}/client_service/shared
+    ${CMAKE_SOURCE_DIR}/deps/date/include
+    ${CMAKE_SOURCE_DIR}/deps/sqlite3
+    ${CMAKE_SOURCE_DIR}/deps/json/single_include
+    ${CMAKE_SOURCE_DIR}/deps/curl/include
+    ${CMAKE_SOURCE_DIR}/deps/civetweb/include
+    ${CMAKE_SOURCE_DIR}/deps/sentry-native/include
+    ${CARES_INCLUDE_DIR}
+    ${Boost_INCLUDE_DIRS}
+    ${FFMPEG_INCLUDE_DIR}
+)
+
+target_link_libraries(squadov_shared
+    sentry
+    cryptopp-static
+    Propsys
+    libzip::zip libzippp::libzippp
+    ${FFMPEG_LIBRARIES}
+)
